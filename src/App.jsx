@@ -7,26 +7,24 @@ import { Footer } from "./modules/Footer/Footer";
 import { Order } from "./modules/Order/Order";
 
 export const App = () => {
-  
   return (
   <>
-  <Header/>
+    <Header/>
 
-  <main>
+    <main>
+      <Hero/>
 
-    <Hero/>
+      <Filter/>
 
-    <Filter/>
+      <Goods/>
 
-    <Goods/>
+      <Subscribe/>
+    </main>
 
-    <Subscribe/>
+    <Footer/>
 
-  </main>
-
-  <Footer/>
-
-  <Order/>
+    <Order/>
+    
     </>
   )
 }

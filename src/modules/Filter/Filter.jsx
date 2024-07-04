@@ -1,5 +1,5 @@
 import './filter.scss'
-import './choices.scss'
+import { Choices } from '../Choices/Choices'
 
 export const Filter = () => (
     <section className="filter">
@@ -23,31 +23,18 @@ export const Filter = () => (
             htmlFor="postcard">Открытки</label>
         </fieldset>
 
-        <fieldset className="filter__group filter__group_choices">
-          <div className="filter__choices choices">
-            <button className="filter__select choices__btn"
-              type="button">Цена</button>
+        <fieldset className="filter__group filter__group_choices"> 
+          <Choices buttonLabel='Цена'>
+          <fieldset className="filter__price">
+        <input className="filter__input-price" type="text" name="minPrice" placeholder="от" />
+        <input className="filter__input-price" type="text" name="maxPrice" placeholder="до" />
+      </fieldset>
+      </Choices>
 
-            <div className="choices__box filter__choices-box">
-              <fieldset className="filter__price">
-                <input className="filter__input-price" type="text" name="minPrice"
-                  placeholder="от" />
-                <input className="filter__input-price" type="text" name="maxPrice"
-                  placeholder="до" />
-              </fieldset>
-            </div>
-          </div>
-
-          <div className="filter__choices filter__choices_type choices">
-            <button className="filter__select choices__btn" type="button">Тип
-              товара</button>
-
-            <div
-              className="choices__box filter__choices-box filter__choices-box_type">
-              <ul className="filter__type-list">
+      <Choices buttonLabel='Тип товара'>
+               <ul className="filter__type-list">
                 <li className="filter__type-item">
-                  <button className="filter__type-button"
-                    type="button">Монобукеты</button>
+                  <button className="filter__type-button" type="button">Монобукеты</button>
                 </li>
                 <li className="filter__type-item">
                   <button className="filter__type-button" type="button">Авторские
@@ -66,8 +53,10 @@ export const Filter = () => (
                     сухоцветов</button>
                 </li>
               </ul>
-            </div>
-          </div>
+      </Choices>
+
+         
+
         </fieldset>
       </form>
     </div>
