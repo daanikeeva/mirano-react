@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { goodsArray } from "../../goodsArray"
 import { CartItem } from "../CartItem/CartItem"
 import { toggleCart } from '../../redux/cartSlice';
+import { openOrder } from "../../redux/orderSlice";
 import './cart.scss'
-import { openModal } from "../../redux/modalSlice";
 
 export const Cart = () => {
   const isOpen = useSelector((state) => state.cart.isOpen);
@@ -14,7 +14,7 @@ export const Cart = () => {
   }
 
   const handlerOrderOpen = () => {
-    dispatch(openModal());
+    dispatch(openOrder());
   }
 
   if (!isOpen) return null
