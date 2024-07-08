@@ -12,10 +12,11 @@ export const Goods = () => {
   const goods = useSelector(state => state.goods.items);
   let goodsStatus = useSelector(state => state.goods.status);
   const error = useSelector(state => state.goods.error);
+  let typeGoods = useSelector(state => state.goods.type);
 
   useEffect(() => {
-    if(goodsStatus === 'idle') {
-      dispatch(fetchGoods())
+    if (goodsStatus === 'idle') {
+      dispatch(fetchGoods({type: typeGoods}))
     }
   }, [dispatch, goodsStatus])
 

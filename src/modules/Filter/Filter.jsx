@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import './filter.scss'
 import { Choices } from '../Choices/Choices'
+import { useDispatch } from 'react-redux'
+import { changeTypeGoods } from '../../redux/goodsSlice'
 
 export const Filter = () => {
+  const dispatch = useDispatch();
   const [openChoice, setOpenChoices] = useState(null);
 
   const handlerChoicesToggle = (index) => {
     setOpenChoices((openChoice === index) ? null : index);
+  }
+
+  const handlerChangeTypeGoods = (type) => {
+    dispatch(changeTypeGoods(type))
   }
 
   return (
@@ -22,7 +29,11 @@ export const Filter = () => {
             value="bouquets" 
             id="flower" 
             defaultChecked />
-          <label className="filter__label filter__label_flower" htmlFor="flower">Цветы</label>
+          <label 
+            className="filter__label filter__label_flower" 
+            htmlFor="flower"
+            onClick={() => handlerChangeTypeGoods('bouquets')}
+          >Цветы</label>
           <input 
             className="filter__radio" 
             type="radio" 
@@ -31,7 +42,9 @@ export const Filter = () => {
             id="toys" />
           <label 
             className="filter__label filter__label_toys"
-            htmlFor="toys">Игрушки</label>
+            htmlFor="toys"
+            onClick={() => handlerChangeTypeGoods('toys')}
+            >Игрушки</label>
           <input 
             className="filter__radio" 
             type="radio" 
@@ -40,7 +53,9 @@ export const Filter = () => {
             id="postcard" />
           <label 
             className="filter__label filter__label_postcard"
-            htmlFor="postcard">Открытки</label>
+            htmlFor="postcard"
+            onClick={() => handlerChangeTypeGoods('postcards')}
+            >Открытки</label>
         </fieldset>
 
         <fieldset className="filter__group filter__group_choices"> 
